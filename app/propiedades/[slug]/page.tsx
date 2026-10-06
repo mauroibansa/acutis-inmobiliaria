@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ContactForm } from "@/components/ContactForm";
 import { properties } from "@/lib/properties";
 
 export function generateStaticParams() {
@@ -12,6 +13,56 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
   const property = properties.find((item) => item.slug === slug);
 
   if (!property) notFound();
+
+  if (property.gallery && property.details) {
+    return (
+      <>
+        <section className="property-pilot-header">
+          <div className="container">
+            <Link className="property-back" href="/propiedades">← Todas las propiedades</Link>
+            <span className="eyebrow light">{property.location}</span>
+            <div className="property-pilot-heading">
+              <h1>{property.title}</h1>
+              <strong>{property.price}</strong>
+            </div>
+            <div className="property-pilot-meta"><span>{property.type}</span><span>{property.features}</span><span>Ref. {property.reference}</span></div>
+          </div>
+        </section>
+
+        <section className="property-gallery-section">
+          <div className="container property-gallery">
+            {property.gallery.map((image, index) => (
+              <div className={`property-gallery-item property-gallery-item-${index + 1}`} key={image}>
+                <Image src={image} alt={`${property.title} — imagen ${index + 1}`} fill priority sizes={index === 0 ? "(max-width: 900px) 100vw, 60vw" : "(max-width: 900px) 50vw, 25vw"} />
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="section property-pilot-content">
+          <div className="container property-pilot-layout">
+            <div className="property-pilot-main">
+              <span className="eyebrow">La propiedad</span>
+              <h2>{property.summary}</h2>
+              <p className="lead">{property.description}</p>
+              <div className="property-details">
+                <span className="eyebrow">Características</span>
+                <ul>{property.details.map((detail) => <li key={detail}>{detail}</li>)}</ul>
+              </div>
+              <p className="property-disclaimer">Información y disponibilidad sujetas a confirmación. Gastos e impuestos derivados de la compraventa no incluidos.</p>
+            </div>
+            <aside className="property-inquiry" id="consulta">
+              <span className="eyebrow">Consulta directa</span>
+              <h3>¿Quieres conocer esta propiedad?</h3>
+              <p>Déjanos tus datos y te contactaremos para ampliar la información o concertar una visita.</p>
+              <ContactForm compact defaultMessage={`Me interesa ${property.title} (${property.reference}).`} />
+              <a className="property-phone" href="tel:+34645435228">O llámanos al 645 435 228</a>
+            </aside>
+          </div>
+        </section>
+      </>
+    );
+  }
 
   return (
     <>

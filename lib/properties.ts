@@ -4,11 +4,13 @@ export type Property = {
   location: string;
   price: string;
   image: string;
+  gallery?: string[];
   type: string;
   area: string;
   features: string;
   summary: string;
   description: string;
+  details?: string[];
   reference: string;
   status?: string;
   notice?: string;
@@ -22,11 +24,28 @@ export const properties: Property[] = [
     location: "San García · Algeciras",
     price: "450.000 €",
     image: "/properties/chalet-san-garcia.jpg",
+    gallery: [
+      "/properties/chalet-san-garcia.jpg",
+      "/properties/chalet-san-garcia-7.jpg",
+      "/properties/chalet-san-garcia-10.jpg",
+      "/properties/chalet-san-garcia-16.jpg",
+      "/properties/chalet-san-garcia-20.jpg",
+    ],
     type: "Chalet independiente",
     area: "307 m²",
     features: "3 dorm. · 2 baños · 307 m²",
     summary: "Una vivienda independiente con piscina y jardín en una de las zonas residenciales más consolidadas de Algeciras.",
     description: "Construida sobre una amplia parcela, la vivienda distribuye sus estancias con una relación fluida entre interior y exterior. Dispone de salón luminoso con chimenea, tres dormitorios, dos baños, garaje para dos vehículos, aire acondicionado y zonas exteriores pensadas para disfrutarse durante todo el año.",
+    details: [
+      "307 m² construidos",
+      "251 m² útiles",
+      "3 dormitorios",
+      "2 baños",
+      "Garaje para 2 vehículos",
+      "Piscina privada",
+      "Jardín",
+      "Aire acondicionado",
+    ],
     reference: "11805_30366919",
     featured: true,
   },
