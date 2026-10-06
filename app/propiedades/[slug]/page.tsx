@@ -3,5 +3,50 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { properties } from "@/lib/properties";
 
-export function generateStaticParams(){return properties.map(({slug})=>({slug}))}
-export default async function PropertyPage({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const p=properties.find(item=>item.slug===slug);if(!p)notFound();return <><section className="property-detail-hero"><Image src={p.image} alt={`${p.title}, ${p.location}`} fill priority sizes="100vw"/><div className="property-detail-title"><div className="container"><span className="eyebrow light">{p.location} · Propiedad de demostración</span><h1>{p.title}</h1><div className="property-meta"><strong>{p.price}</strong><span>{p.type}</span><span>{p.beds} dormitorios</span><span>{p.area}</span></div></div></div></section><section className="section"><div className="container split"><div><span className="eyebrow">La propiedad</span><h2>{p.summary}</h2></div><div><p className="lead">Una ficha diseñada para presentar cada inmueble con ritmo editorial y la información esencial, sin convertirlo en una tabla de características.</p><p>Esta propiedad es contenido ficticio de la V1. La futura integración con Sanity permitirá gestionar descripción, galería, estado, características y SEO sin tocar el código.</p><Link className="button button-dark" href="/contacto">Consultar</Link></div></div></section></>}
+export function generateStaticParams() {
+  return properties.map(({ slug }) => ({ slug }));
+}
+
+export default async function PropertyPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const property = properties.find((item) => item.slug === slug);
+
+  if (!property) notFound();
+
+  return (
+    <>
+      <section className="property-detail-hero">
+        <Image src={property.image} alt={`${property.title}, ${property.location}`} fill priority sizes="100vw" />
+        <div className="property-detail-title">
+          <div className="container">
+            <span className="eyebrow light">{property.location}{property.status ? ` · ${property.status}` : ""}</span>
+            <h1>{property.title}</h1>
+            <div className="property-meta">
+              <strong>{property.price}</strong>
+              <span>{property.type}</span>
+              <span>{property.features}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="section">
+        <div className="container split property-description">
+          <div>
+            <span className="eyebrow">La propiedad</span>
+            <h2>{property.summary}</h2>
+          </div>
+          <div>
+            <p className="lead">{property.description}</p>
+            <dl className="property-facts">
+              <div><dt>Tipo</dt><dd>{property.type}</dd></div>
+              <div><dt>Superficie</dt><dd>{property.area}</dd></div>
+              <div><dt>Referencia</dt><dd>{property.reference}</dd></div>
+            </dl>
+            {property.notice && <div className="property-notice"><strong>Información importante</strong><p>{property.notice}</p></div>}
+            <Link className="button button-dark" href="/contacto">Consultar esta propiedad</Link>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}

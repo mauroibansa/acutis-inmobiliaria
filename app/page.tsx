@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ContactForm } from "@/components/ContactForm";
 import { PropertyCard } from "@/components/PropertyCard";
-import { properties } from "@/lib/properties";
+import { featuredProperties } from "@/lib/properties";
 
 const steps = [
   ["01", "Lectura del activo", "Analizamos la vivienda, su contexto y su comprador probable."],
@@ -26,7 +26,7 @@ export default function Home() {
 
       <section className="section method-section"><div className="container"><div className="section-heading"><span className="eyebrow light">Nuestro método</span><h2>Cuatro pasos. Un único criterio.</h2><p>Tomar mejores decisiones en cada momento de la venta.</p></div><div className="steps">{steps.map(([n,t,d]) => <article key={n}><span>{n}</span><h3>{t}</h3><p>{d}</p></article>)}</div></div></section>
 
-      <section className="section properties-section"><div className="container"><div className="section-heading row"><div><span className="eyebrow">Selección ACUTIS</span><h2>Pocas propiedades.<br />Bien elegidas.</h2></div><Link className="text-link" href="/propiedades">Ver propiedades <span>→</span></Link></div><div className="property-grid">{properties.map(p => <PropertyCard key={p.slug} property={p} />)}</div><p className="demo-note">Propiedades de demostración para la primera versión del catálogo.</p></div></section>
+      <section className="section properties-section"><div className="container"><div className="section-heading row"><div><span className="eyebrow">Selección ACUTIS</span><h2>Pocas propiedades.<br />Bien elegidas.</h2></div><Link className="text-link" href="/propiedades">Ver propiedades <span>→</span></Link></div><div className="property-grid">{featuredProperties.map(p => <PropertyCard key={p.slug} property={p} />)}</div></div></section>
 
       <section className="section investment-section"><div className="container split"><div><span className="eyebrow light">Inversión</span><h2>La oportunidad no siempre está anunciada.</h2></div><div><p className="lead">Acompañamos a inversores que buscan activos con lógica, no promesas. Detectamos, analizamos y estructuramos cada operación con una mirada local.</p><Link className="button button-outline" href="/inversion">Explorar inversión</Link></div></div></section>
 
