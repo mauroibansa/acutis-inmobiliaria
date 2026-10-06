@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ContactForm } from "@/components/ContactForm";
+import { PropertyDetailIcon } from "@/components/PropertyDetailIcon";
+import { PropertyGallery } from "@/components/PropertyGallery";
 import { properties } from "@/lib/properties";
 
 export function generateStaticParams() {
@@ -30,13 +32,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
         </section>
 
         <section className="property-gallery-section">
-          <div className="container property-gallery">
-            {property.gallery.map((image, index) => (
-              <div className={`property-gallery-item property-gallery-item-${index + 1}`} key={image}>
-                <Image src={image} alt={`${property.title} — imagen ${index + 1}`} fill priority sizes={index === 0 ? "(max-width: 900px) 100vw, 60vw" : "(max-width: 900px) 50vw, 25vw"} />
-              </div>
-            ))}
-          </div>
+          <PropertyGallery images={property.gallery} title={property.title} />
         </section>
 
         <section className="section property-pilot-content">
@@ -47,7 +43,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
               <p className="lead">{property.description}</p>
               <div className="property-details">
                 <span className="eyebrow">Características</span>
-                <ul>{property.details.map((detail) => <li key={detail}>{detail}</li>)}</ul>
+                <ul>{property.details.map((detail) => <li key={detail}><PropertyDetailIcon detail={detail} /><span>{detail}</span></li>)}</ul>
               </div>
               <p className="property-disclaimer">Información y disponibilidad sujetas a confirmación. Gastos e impuestos derivados de la compraventa no incluidos.</p>
             </div>
