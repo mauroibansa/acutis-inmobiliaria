@@ -18,7 +18,7 @@ export function Header() {
     <header className="site-header">
       <div className="header-inner">
         <Link className="brand" href="/" aria-label="ACUTIS, inicio">
-          <Image src="/images/acutis-logo-reference.png" alt="ACUTIS" width={58} height={58} priority />
+          <Image src="/images/acutis-isotipo.png" alt="Isotipo de ACUTIS" width={58} height={58} priority />
           <span>ACUTIS<small>Inmobiliaria</small></span>
         </Link>
         <button className="menu-button" onClick={() => setOpen(!open)} aria-expanded={open} aria-label="Abrir menú">
