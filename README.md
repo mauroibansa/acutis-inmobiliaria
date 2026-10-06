@@ -4,7 +4,7 @@ Primera versión funcional de la web multipágina de ACUTIS, orientada a la capt
 
 ## Stack
 
-- Next.js 15 · App Router
+- Next.js 16 · App Router
 - TypeScript estricto
 - CSS propio y componentes reutilizables
 - Preparada para sustituir `lib/properties.ts` por consultas a Sanity
