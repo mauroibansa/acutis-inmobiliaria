@@ -38,7 +38,7 @@
 .property-pilot-meta{display:flex;flex-wrap:wrap;gap:12px 34px;margin-top:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,.2);text-transform:uppercase;letter-spacing:.12em;font-size:.65rem;color:rgba(255,255,255,.72)}
 .property-gallery-section{padding:24px 0 0;background:var(--paper)}
 .property-gallery{display:grid;grid-template-columns:1.5fr 1fr 1fr;grid-template-rows:330px 330px;gap:12px}
-.property-gallery-item{position:relative;overflow:hidden;background:#e9e6df}
+.property-gallery-item{position:relative;min-height:190px;overflow:hidden;background:#e9e6df}
 .property-gallery-item img{transition:transform .7s}
 .property-gallery-item:hover img{transform:scale(1.02)}
 .property-gallery-item-1{grid-row:1/3}
