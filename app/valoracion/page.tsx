@@ -1,0 +1,4 @@
+import { PageHero } from "@/components/PageHero";
+import { ContactForm } from "@/components/ContactForm";
+export const metadata={title:"Valoración"};
+export default function ValuationPage(){return <><PageHero eyebrow="Informe de venta ACUTIS" title="Pon tu propiedad en perspectiva." intro="Solicita una primera valoración y descubre cómo debería posicionarse tu vivienda antes de salir al mercado." image="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2200&q=85"/><section className="section final-cta"><div className="container split"><div><span className="eyebrow">Solicitud</span><h2>Empecemos por los datos esenciales.</h2><p>No enviamos una cifra automática. Revisamos tu caso y te contactamos para completar la información necesaria.</p></div><ContactForm/></div></section></>}
