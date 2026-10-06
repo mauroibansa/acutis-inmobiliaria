@@ -18,7 +18,7 @@ export function PropertyDetailIcon({ detail }: PropertyDetailIconProps) {
   if (value.includes("dormitorio")) {
     return <svg {...common}><path d="M3 18v-7m18 7v-5a3 3 0 0 0-3-3H9a3 3 0 0 0-3 3v5M3 15h18M6 10V7h4a2 2 0 0 1 2 2v1" /></svg>;
   }
-  if (value.includes("baño")) {
+  if (value.includes("baño") || value.includes("aseo")) {
     return <svg {...common}><path d="M4 13h16v2a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v-2Zm2 0V7a3 3 0 0 1 5.5-1.7M7 19v2m10-2v2M15 8h3" /></svg>;
   }
   if (value.includes("garaje")) {
@@ -32,6 +32,24 @@ export function PropertyDetailIcon({ detail }: PropertyDetailIconProps) {
   }
   if (value.includes("aire")) {
     return <svg {...common}><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9M9.8 5.2 12 7.4l2.2-2.2M9.8 18.8l2.2-2.2 2.2 2.2M5.1 10.5l3 .8-.8-3M18.9 13.5l-3-.8.8 3" /></svg>;
+  }
+  if (value.includes("ascensor") || value.includes("planta")) {
+    return <svg {...common}><path d="M7 3h10v18H7zM10 8l2-2 2 2m-4 8 2 2 2-2M4 7v10m16-10v10" /></svg>;
+  }
+  if (value.includes("terraza") || value.includes("exterior")) {
+    return <svg {...common}><circle cx="12" cy="8" r="3" /><path d="M12 2v2m0 8v2M6 8H4m16 0h-2M7.8 3.8 6.4 2.4m9.8 1.4 1.4-1.4M4 18h16M7 18v3m10-3v3" /></svg>;
+  }
+  if (value.includes("armario") || value.includes("trastero") || value.includes("almacen")) {
+    return <svg {...common}><path d="M5 3h14v18H5zM12 3v18M9 12h.01M15 12h.01" /></svg>;
+  }
+  if (value.includes("parcela")) {
+    return <svg {...common}><path d="M4 5h16v14H4zM4 9h16M9 5v14M15 9v10" /></svg>;
+  }
+  if (value.includes("reform")) {
+    return <svg {...common}><path d="m14 6 4-4 4 4-4 4M16 8 8 16m-2-1 3 3-3 3-3-3 3-3ZM3 6h7M6.5 2.5v7" /></svg>;
+  }
+  if (value.includes("sin posesión") || value.includes("sin visita") || value.includes("cesión")) {
+    return <svg {...common}><path d="M12 3 2.8 20h18.4L12 3Z" /><path d="M12 9v5m0 3h.01" /></svg>;
   }
   if (value.includes("útiles")) {
     return <svg {...common}><path d="M9 4H4v5m11-5h5v5M9 20H4v-5m11 5h5v-5M8 8l-4-4m12 4 4-4M8 16l-4 4m12-4 4 4" /></svg>;

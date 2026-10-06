@@ -45,6 +45,7 @@ export default async function PropertyPage({ params }: { params: Promise<{ slug:
                 <span className="eyebrow">Características</span>
                 <ul>{property.details.map((detail) => <li key={detail}><PropertyDetailIcon detail={detail} /><span>{detail}</span></li>)}</ul>
               </div>
+              {property.notice && <div className="property-notice"><strong>Información importante</strong><p>{property.notice}</p></div>}
               <p className="property-disclaimer">Información y disponibilidad sujetas a confirmación. Gastos e impuestos derivados de la compraventa no incluidos.</p>
             </div>
             <aside className="property-inquiry" id="consulta">

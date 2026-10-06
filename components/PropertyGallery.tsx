@@ -46,7 +46,7 @@ export function PropertyGallery({ images, title }: PropertyGalleryProps) {
   return (
     <>
       <div className="container property-gallery-shell">
-        <div className="property-gallery">
+        <div className={`property-gallery property-gallery-count-${previewImages.length}`}>
           {previewImages.map((image, index) => (
             <button
               className={`property-gallery-item property-gallery-item-${index + 1}`}
