@@ -1,38 +1,76 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ContactForm } from "@/components/ContactForm";
-import { PropertyCard } from "@/components/PropertyCard";
-import { featuredProperties } from "@/lib/properties";
+import { BuyerBriefForm, MarketStudyForm } from "@/components/LandingForms";
 
-const steps = [
-  ["01", "Lectura del activo", "Analizamos la vivienda, su contexto y su comprador probable."],
-  ["02", "Estrategia de mercado", "Definimos precio, relato, presentación y plan de salida."],
-  ["03", "Exposición selectiva", "Activamos canales y contactos sin convertir el inmueble en uno más."],
-  ["04", "Negociación y cierre", "Protegemos la posición del propietario hasta la firma."],
+const studyPoints = [
+  { icon: "chart", title: "Valoración razonada", text: "Analizamos el mercado, no solo tu propiedad." },
+  { icon: "search", title: "Competencia real", text: "Estudiamos lo que realmente se está vendiendo." },
+  { icon: "camera", title: "Presentación", text: "Cuidamos cada detalle para generar interés." },
+  { icon: "plan", title: "Plan comercial", text: "Una estrategia a medida para el comprador adecuado." },
 ];
+
+function StudyIcon({ name }: { name: string }) {
+  if (name === "chart") return <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 27V17h5v10M14 27V11h5v16M23 27V5h4v22M3 27h26" /></svg>;
+  if (name === "search") return <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="14" cy="14" r="9" /><path d="m21 21 7 7" /></svg>;
+  if (name === "camera") return <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 10h6l2-4h8l2 4h6v17H4z" /><circle cx="16" cy="18" r="6" /></svg>;
+  return <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="6" y="4" width="20" height="24" /><path d="M11 10h10M11 15h10M11 20h7" /></svg>;
+}
 
 export default function Home() {
   return (
-    <>
-      <section className="hero">
-        <Image src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2200&q=90" alt="Arquitectura contemporánea y mediterránea" fill priority sizes="100vw" />
-        <div className="hero-shade" /><div className="hero-content container"><span className="eyebrow light">Inmobiliaria · Campo de Gibraltar</span><h1>Vender bien empieza<br />mucho antes de publicar.</h1><p>Estrategia, presentación y conocimiento local para defender el valor real de tu propiedad.</p><div className="hero-actions"><Link className="button button-light" href="/valoracion">Solicitar valoración</Link><Link className="text-link light" href="/vender">Cómo vendemos <span>→</span></Link></div></div>
-        <div className="hero-note">Sotogrande · San Roque · Algeciras · La Línea</div>
+    <div className="landing-home">
+      <section className="home-hero" id="inicio">
+        <Image src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2400&q=88" alt="Arquitectura residencial contemporánea de inspiración mediterránea" fill priority sizes="100vw" />
+        <div className="home-hero-overlay" />
+        <div className="container home-hero-content">
+          <h1>Vender bien empieza<br />mucho antes de publicar.</h1>
+          <p>Análisis, estrategia y presentación para que tu propiedad llegue al comprador adecuado, en las mejores condiciones.</p>
+          <div className="home-hero-actions">
+            <Link className="button button-light" href="#estudio">Solicitar estudio de mercado</Link>
+            <Link className="home-inline-link" href="#comprar">Quiero comprar <span aria-hidden="true">→</span></Link>
+          </div>
+        </div>
       </section>
 
-      <section className="section report-section"><div className="container split"><div><span className="eyebrow">Informe de venta ACUTIS</span><h2>No te damos una cifra.<br />Te damos una estrategia.</h2></div><div><p className="lead">Un precio sin contexto es solo una opinión. Nuestro estudio combina comparables, demanda, competencia y posicionamiento para decidir cómo salir al mercado.</p><ul className="clean-list"><li>Valoración razonada, no inflada</li><li>Mapa de competencia real</li><li>Recomendaciones de presentación</li><li>Plan de comercialización</li></ul><Link className="text-link" href="/valoracion">Pedir mi estudio de mercado <span>→</span></Link></div></div></section>
+      <section className="landing-section market-study" id="estudio">
+        <div className="container">
+          <div className="landing-heading"><span className="eyebrow">Para propietarios</span><h2>No te damos una cifra.<br />Te damos una estrategia.</h2></div>
+          <div className="study-points">
+            {studyPoints.map((point) => <article key={point.title}><StudyIcon name={point.icon} /><h3>{point.title}</h3><p>{point.text}</p></article>)}
+          </div>
+          <MarketStudyForm />
+        </div>
+      </section>
 
-      <section className="section about-section"><div className="container about-editorial"><div className="about-statement"><span className="eyebrow">Una inmobiliaria de parte del propietario</span><h2>Menos inventario.<br />Más atención.</h2><p className="lead">ACUTIS trabaja cada propiedad con criterio, claridad y una implicación difícil de sostener cuando el catálogo manda.</p><p>No competimos por acumular viviendas. Elegimos proyectos donde podemos aportar una lectura comercial, cuidar la presentación y acompañar cada decisión.</p></div><div className="about-principles"><article><span>01</span><h3>Criterio local</h3><p>Conocimiento real del mercado y de la demanda del Campo de Gibraltar.</p></article><article><span>02</span><h3>Estrategia individual</h3><p>Cada propiedad necesita una lectura, una presentación y un plan propios.</p></article><article><span>03</span><h3>Trato directo</h3><p>Interlocución clara y responsabilidad durante todo el proceso.</p></article><Link className="text-link" href="/nosotros">Conoce ACUTIS <span>→</span></Link></div></div></section>
+      <section className="landing-section buyer-section" id="comprar">
+        <div className="buyer-image"><Image src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=86" alt="Interior residencial luminoso de estilo mediterráneo" fill sizes="(max-width: 900px) 100vw, 50vw" /></div>
+        <div className="buyer-content"><span className="heading-rule" aria-hidden="true" /><h2>¿Quieres comprar?</h2><p>Antes de mostrarte propiedades, queremos entender qué estás buscando.</p><BuyerBriefForm /></div>
+      </section>
 
-      <section className="section method-section"><div className="container"><div className="section-heading"><span className="eyebrow light">Nuestro método</span><h2>Cuatro pasos. Un único criterio.</h2><p>Tomar mejores decisiones en cada momento de la venta.</p></div><div className="steps">{steps.map(([n,t,d]) => <article key={n}><span>{n}</span><h3>{t}</h3><p>{d}</p></article>)}</div></div></section>
+      <section className="landing-section private-section topographic" id="inversores">
+        <div className="topographic-layer" aria-hidden="true" />
+        <div className="container private-content">
+          <div className="private-label"><span className="lock-icon" aria-hidden="true">⌑</span><span className="heading-rule" aria-hidden="true" />Acceso privado</div>
+          <h2>Hay oportunidades<br />que no se publican.</h2>
+          <p>Protegemos la confidencialidad de propietarios e inversores. Por eso algunas operaciones se trabajan de forma privada.</p>
+          <a className="button button-light" href="mailto:alejandro@acutisinmobiliaria.com?subject=Solicitud%20de%20acceso%20privado%20ACUTIS">Solicitar acceso</a>
+        </div>
+      </section>
 
-      <section className="section properties-section"><div className="container"><div className="section-heading row"><div><span className="eyebrow">Selección ACUTIS</span><h2>Pocas propiedades.<br />Bien elegidas.</h2></div><Link className="text-link" href="/propiedades">Ver propiedades <span>→</span></Link></div><div className="property-grid">{featuredProperties.map(p => <PropertyCard key={p.slug} property={p} />)}</div></div></section>
+      <section className="landing-section team-section" id="nosotros">
+        <div className="container">
+          <h2>Dirección y asesoramiento<br />comercial inmobiliario.</h2>
+          <div className="team-grid">
+            <article><div className="team-photo-placeholder" aria-hidden="true" /><div className="team-copy"><h3>Alejandro</h3><p>Propietario y dirección</p><span aria-hidden="true" /></div></article>
+            <article><div className="team-photo-placeholder team-photo-placeholder-alt" aria-hidden="true" /><div className="team-copy"><h3>Antonio</h3><p>Área comercial</p><span aria-hidden="true" /></div></article>
+          </div>
+        </div>
+      </section>
 
-      <section className="section investment-section"><div className="container split"><div><span className="eyebrow light">Inversión</span><h2>La oportunidad no siempre está anunciada.</h2></div><div><p className="lead">Acompañamos a inversores que buscan activos con lógica, no promesas. Detectamos, analizamos y estructuramos cada operación con una mirada local.</p><Link className="button button-outline" href="/inversion">Explorar inversión</Link></div></div></section>
-
-      <section className="section territory-section"><div className="container territory-grid"><div><span className="eyebrow">Territorio</span><h2>Campo de Gibraltar,<br />leído desde dentro.</h2><p className="lead">Un mercado plural donde conviven residencia, segunda vivienda, inversión y conexión internacional.</p><div className="place-list"><span>Sotogrande</span><span>San Roque</span><span>Algeciras</span><span>La Línea</span><span>Tarifa</span><span>Los Barrios</span></div></div><div className="territory-image"><Image src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=85" alt="Costa del sur de Cádiz" fill sizes="(max-width: 800px) 100vw, 50vw" /></div></div></section>
-
-      <section className="section final-cta"><div className="container split"><div><span className="eyebrow">Hablemos de tu propiedad</span><h2>Antes de ponerla a la venta, ponla en perspectiva.</h2><p>Cuéntanos lo esencial. Te llamaremos para conocer el inmueble y decidir si podemos ayudarte.</p></div><ContactForm compact /></div></section>
-    </>
+      <section className="landing-section closing-section topographic" id="contacto">
+        <div className="topographic-layer topographic-layer-closing" aria-hidden="true" />
+        <div className="container closing-content"><h2>Hablemos de tu propiedad<br />o de lo que estás buscando.</h2><div><Link className="button button-outline" href="#estudio">Quiero vender</Link><Link className="button button-light" href="#comprar">Quiero comprar</Link></div></div>
+      </section>
+    </div>
   );
 }

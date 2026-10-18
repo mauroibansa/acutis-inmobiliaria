@@ -5,11 +5,11 @@ import Link from "next/link";
 import { useState } from "react";
 
 const links = [
-  ["Vender", "/vender"],
-  ["Propiedades", "/propiedades"],
-  ["Inversión", "/inversion"],
-  ["Nosotros", "/nosotros"],
-  ["Contacto", "/contacto"],
+  ["Vender", "/#estudio"],
+  ["Comprar", "/#comprar"],
+  ["Inversores", "/#inversores"],
+  ["Nosotros", "/#nosotros"],
+  ["Contacto", "/#contacto"],
 ];
 
 export function Header() {
@@ -26,7 +26,7 @@ export function Header() {
         </button>
         <nav className={open ? "main-nav is-open" : "main-nav"} aria-label="Navegación principal">
           {links.map(([label, href]) => <Link key={href} href={href} onClick={() => setOpen(false)}>{label}</Link>)}
-          <Link className="button button-small" href="/valoracion" onClick={() => setOpen(false)}>Solicitar valoración</Link>
+          <Link className="button button-small" href="/#estudio" onClick={() => setOpen(false)}>Solicitar valoración</Link>
         </nav>
       </div>
     </header>
