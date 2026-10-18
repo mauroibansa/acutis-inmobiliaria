@@ -122,6 +122,7 @@
 /* ACUTIS single-page landing */
 .landing-home{--landing-space:clamp(110px,10vw,160px);overflow:clip;background:var(--paper)}
 .landing-home [id]{scroll-margin-top:30px}
+.landing-form[id],.private-section [id]{scroll-margin-top:110px}
 .landing-section{position:relative;padding:var(--landing-space) 0}
 .home-hero{position:relative;min-height:760px;height:100svh;display:flex;align-items:flex-end;color:white;overflow:hidden}
 .home-hero>img{z-index:0;object-position:center 54%}
@@ -224,6 +225,7 @@
 }
 
 @media(max-width:600px){
+  .landing-form[id],.private-section [id]{scroll-margin-top:80px}
   .home-hero{min-height:720px}
   .home-hero>img{object-position:60% center}
   .home-hero-overlay{background:linear-gradient(90deg,rgba(4,17,31,.88),rgba(4,17,31,.58)),linear-gradient(0deg,rgba(4,17,31,.38),transparent 60%)}

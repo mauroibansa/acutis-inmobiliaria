@@ -5,9 +5,9 @@ import Link from "next/link";
 import { useState } from "react";
 
 const links = [
-  ["Vender", "/#estudio"],
-  ["Comprar", "/#comprar"],
-  ["Inversores", "/#inversores"],
+  ["Vender", "/#formulario-venta"],
+  ["Comprar", "/#formulario-compra"],
+  ["Inversores", "/#solicitud-inversores"],
   ["Nosotros", "/#nosotros"],
   ["Contacto", "/#contacto"],
 ];
@@ -26,7 +26,7 @@ export function Header() {
         </button>
         <nav className={open ? "main-nav is-open" : "main-nav"} aria-label="Navegación principal">
           {links.map(([label, href]) => <Link key={href} href={href} onClick={() => setOpen(false)}>{label}</Link>)}
-          <Link className="button button-small" href="/#estudio" onClick={() => setOpen(false)}>Solicitar valoración</Link>
+          <Link className="button button-small" href="/#formulario-venta" onClick={() => setOpen(false)}>Solicitar valoración</Link>
         </nav>
       </div>
     </header>

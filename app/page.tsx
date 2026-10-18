@@ -53,7 +53,7 @@ export default function Home() {
           <div className="private-label"><span className="lock-icon" aria-hidden="true">⌑</span><span className="heading-rule" aria-hidden="true" />Acceso privado</div>
           <h2>Hay oportunidades<br />que no se publican.</h2>
           <p>Protegemos la confidencialidad de propietarios e inversores. Por eso algunas operaciones se trabajan de forma privada.</p>
-          <a className="button button-light" href="mailto:alejandro@acutisinmobiliaria.com?subject=Solicitud%20de%20acceso%20privado%20ACUTIS">Solicitar acceso</a>
+          <a id="solicitud-inversores" className="button button-light" href="mailto:alejandro@acutisinmobiliaria.com?subject=Solicitud%20de%20acceso%20privado%20ACUTIS">Solicitar acceso</a>
         </div>
       </section>
 
