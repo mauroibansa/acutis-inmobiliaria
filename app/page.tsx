@@ -43,7 +43,7 @@ export default function Home() {
       </section>
 
       <section className="landing-section buyer-section" id="comprar">
-        <div className="buyer-image"><Image src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=86" alt="Interior residencial luminoso de estilo mediterráneo" fill sizes="(max-width: 900px) 100vw, 50vw" /></div>
+        <div className="buyer-image"><Image src="/images/acutis-interior-comprar-v2.jpg" alt="Salón mediterráneo contemporáneo iluminado por luz natural" fill sizes="(max-width: 900px) 100vw, 50vw" quality={90} /></div>
         <div className="buyer-content"><span className="heading-rule" aria-hidden="true" /><h2>¿Quieres comprar?</h2><p>Antes de mostrarte propiedades, queremos entender qué estás buscando.</p><BuyerBriefForm /></div>
       </section>
 
