@@ -6,10 +6,17 @@ import "./globals.css";
 
 const serif = Cormorant_Garamond({ subsets: ["latin"], variable: "--font-serif", weight: ["400", "500", "600"] });
 const sans = Manrope({ subsets: ["latin"], variable: "--font-sans", weight: ["400", "500", "600"] });
+const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : "https://acutis-inmobiliaria.vercel.app";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: { default: "ACUTIS Inmobiliaria | Campo de Gibraltar", template: "%s | ACUTIS Inmobiliaria" },
   description: "Estrategia inmobiliaria, venta e inversión en el Campo de Gibraltar.",
+  icons: {
+    icon: "/brand/ACUTIS-logo-02.svg",
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
