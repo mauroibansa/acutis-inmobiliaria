@@ -26,7 +26,7 @@ export function Header() {
         </button>
         <nav className={open ? "main-nav is-open" : "main-nav"} aria-label="Navegación principal">
           {links.map(([label, href]) => <Link key={href} href={href} onClick={() => setOpen(false)}>{label}</Link>)}
-          <Link className="button button-small" href="/#formulario-venta" onClick={() => setOpen(false)}>Solicitar valoración</Link>
+          <Link className="button button-small" href="/#formulario-venta" onClick={() => setOpen(false)}>Solicitar estudio</Link>
         </nav>
       </div>
     </header>

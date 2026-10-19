@@ -1,12 +1,26 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { BuyerBriefForm, MarketStudyForm } from "@/components/LandingForms";
 
+export const metadata: Metadata = {
+  title: "Estudio de mercado inmobiliario en el Campo de Gibraltar",
+  description: "Analizamos tu propiedad, la competencia y el mercado para definir el precio de salida y la estrategia comercial antes de publicar.",
+};
+
 const studyPoints = [
-  { icon: "chart", title: "Valoración razonada", text: "Analizamos el mercado, no solo tu propiedad." },
-  { icon: "search", title: "Competencia real", text: "Estudiamos lo que realmente se está vendiendo." },
-  { icon: "camera", title: "Presentación", text: "Cuidamos cada detalle para generar interés." },
-  { icon: "plan", title: "Plan comercial", text: "Una estrategia a medida para el comprador adecuado." },
+  { icon: "chart", title: "Mercado comparable", text: "Analizamos operaciones comparables y la competencia actualmente anunciada." },
+  { icon: "search", title: "Rango de valor", text: "Definimos un rango orientativo y, tras la visita, un precio de salida recomendado." },
+  { icon: "camera", title: "Presentación", text: "Proponemos mejoras para preparar la propiedad y reforzar su percepción de valor." },
+  { icon: "plan", title: "Plan comercial", text: "Detallamos posicionamiento, canales y estrategia para llegar al comprador adecuado." },
+];
+
+const processSteps = [
+  ["01", "Escuchamos", "Conocemos la propiedad, la situación y el objetivo de la venta."],
+  ["02", "Visitamos", "Revisamos el inmueble, su estado y los factores que influyen en su valor."],
+  ["03", "Analizamos", "Contrastamos comparables, demanda y competencia real."],
+  ["04", "Definimos", "Acordamos precio, presentación y plan de salida al mercado."],
+  ["05", "Acompañamos", "Filtramos visitas, negociamos y seguimos la operación hasta la firma."],
 ];
 
 function StudyIcon({ name }: { name: string }) {
@@ -34,7 +48,7 @@ export default function Home() {
 
       <section className="landing-section market-study" id="estudio">
         <div className="container">
-          <div className="landing-heading"><span className="eyebrow">Para propietarios</span><h2>No te damos una cifra.<br />Te damos una estrategia.</h2></div>
+          <div className="landing-heading"><span className="eyebrow">Qué incluye el estudio</span><h2>No te damos una cifra.<br />Te damos una estrategia.</h2><p>Recibirás una lectura razonada del mercado y una hoja de ruta para decidir cómo y cuándo vender. No es una tasación automática.</p></div>
           <div className="study-points">
             {studyPoints.map((point) => <article key={point.title}><StudyIcon name={point.icon} /><h3>{point.title}</h3><p>{point.text}</p></article>)}
           </div>
@@ -42,9 +56,18 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="landing-section process-section" id="proceso">
+        <div className="container">
+          <div className="process-heading"><span className="eyebrow">Cómo trabajamos</span><h2>De la primera conversación<br />hasta la firma.</h2></div>
+          <div className="process-steps">
+            {processSteps.map(([number, title, text]) => <article key={number}><span>{number}</span><h3>{title}</h3><p>{text}</p></article>)}
+          </div>
+        </div>
+      </section>
+
       <section className="landing-section buyer-section" id="comprar">
         <div className="buyer-image"><Image src="/images/acutis-interior-comprar-v2.jpg" alt="Salón mediterráneo contemporáneo iluminado por luz natural" fill sizes="(max-width: 900px) 100vw, 50vw" quality={90} /></div>
-        <div className="buyer-content"><span className="heading-rule" aria-hidden="true" /><h2>¿Quieres comprar?</h2><p>Antes de mostrarte propiedades, queremos entender qué estás buscando.</p><BuyerBriefForm /></div>
+        <div className="buyer-content"><span className="heading-rule" aria-hidden="true" /><h2>¿Quieres comprar?</h2><p>Conocer presupuesto, financiación, zona y necesidades nos permite presentarte únicamente propiedades que realmente encajen.</p><BuyerBriefForm /></div>
       </section>
 
       <section className="landing-section private-section topographic" id="inversores">
@@ -53,7 +76,13 @@ export default function Home() {
           <div className="private-label"><span className="lock-icon" aria-hidden="true">⌑</span><span className="heading-rule" aria-hidden="true" />Acceso privado</div>
           <h2>Hay oportunidades<br />que no se publican.</h2>
           <p>Protegemos la confidencialidad de propietarios e inversores. Por eso algunas operaciones se trabajan de forma privada.</p>
+          <div className="private-facts">
+            <article><strong>Activos</strong><span>Residencial, suelo y operaciones con potencial de rentabilidad.</span></article>
+            <article><strong>Ámbito</strong><span>Campo de Gibraltar y oportunidades seleccionadas en su entorno.</span></article>
+            <article><strong>Acceso</strong><span>Revisamos objetivos y perfil antes de compartir cada operación.</span></article>
+          </div>
           <a id="solicitud-inversores" className="button button-light" href="mailto:alejandro@acutisinmobiliaria.com?subject=Solicitud%20de%20acceso%20privado%20ACUTIS">Solicitar acceso</a>
+          <small className="investment-note">Cada inversión requiere un análisis individual. La información facilitada no constituye asesoramiento financiero.</small>
         </div>
       </section>
 
@@ -69,8 +98,10 @@ export default function Home() {
 
       <section className="landing-section closing-section topographic" id="contacto">
         <div className="topographic-layer topographic-layer-closing" aria-hidden="true" />
-        <div className="container closing-content"><h2>Hablemos de tu propiedad<br />o de lo que estás buscando.</h2><div><Link className="button button-outline" href="#estudio">Quiero vender</Link><Link className="button button-light" href="#comprar">Quiero comprar</Link></div></div>
+        <div className="container closing-content"><span className="eyebrow light">Antes de publicar</span><h2>¿Estás pensando<br />en vender?</h2><p>Conoce cómo está realmente tu mercado antes de decidir el precio.</p><div><Link className="button button-light" href="#formulario-venta">Solicitar estudio de mercado</Link><a className="button button-outline" href="tel:+34645435228">Hablar con Alejandro</a></div></div>
       </section>
+
+      <nav className="mobile-conversion-bar" aria-label="Contacto rápido"><Link href="#formulario-venta">Solicitar estudio</Link><a href="tel:+34645435228">Llamar</a></nav>
     </div>
   );
 }
