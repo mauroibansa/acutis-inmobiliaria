@@ -1,1 +1,94 @@
-export const metadata={title:"Privacidad"};export default function Page(){return <section className="content-section legal"><div className="container prose"><h1>Política de privacidad</h1><p>Texto provisional. Antes de activar formularios de producción deberá identificarse al responsable del tratamiento, base jurídica, plazos de conservación, destinatarios y vías para ejercer derechos.</p><h2>Formularios</h2><p>La V1 usa el cliente de correo del visitante y no almacena datos en una base de datos. La integración definitiva requerirá un proveedor de formularios y los correspondientes acuerdos y medidas de seguridad.</p></div></section>}
+import type { Metadata } from "next";
+
+export const metadata: Metadata = { title: "Política de privacidad" };
+
+export default function PrivacyPage() {
+  return (
+    <section className="content-section legal">
+      <div className="container prose">
+        <h1>Política de privacidad</h1>
+
+        <h2>1. Responsable del tratamiento</h2>
+        <ul>
+          <li><strong>Responsable:</strong> Alejandro Ibanco Saborido.</li>
+          <li><strong>NIF:</strong> 75882178A.</li>
+          <li><strong>Domicilio:</strong> C/ Regino Martínez, 3, 2.º A, 11201 Algeciras (Cádiz).</li>
+          <li><strong>Correo de privacidad:</strong> <a href="mailto:privacidad@acutisinmobiliaria.com">privacidad@acutisinmobiliaria.com</a>.</li>
+        </ul>
+
+        <h2>2. Datos tratados y finalidad</h2>
+        <p>
+          Se tratan los datos que la persona interesada facilite voluntariamente al realizar una
+          consulta, solicitar un estudio de mercado, indicar qué inmueble busca o pedir acceso a
+          información para inversores. Estos datos pueden incluir nombre, teléfono, correo
+          electrónico e información sobre el inmueble, la búsqueda o la operación planteada.
+        </p>
+        <p>
+          La finalidad es atender la solicitud, contactar con la persona interesada, valorar sus
+          necesidades y, cuando corresponda, preparar o gestionar una relación profesional o
+          contractual. No se adoptan decisiones automatizadas ni se elaboran perfiles con efectos
+          jurídicos sobre las personas usuarias.
+        </p>
+
+        <h2>3. Base jurídica</h2>
+        <p>
+          El tratamiento se basa en la aplicación de medidas precontractuales solicitadas por la
+          persona interesada y, cuando corresponda, en la ejecución de la relación contractual y
+          el cumplimiento de obligaciones legales. No se utilizarán estos datos para enviar
+          comunicaciones comerciales ajenas a la solicitud sin una base jurídica específica.
+        </p>
+
+        <h2>4. Conservación</h2>
+        <p>
+          Las solicitudes que no den lugar a una relación contractual se conservarán durante 12
+          meses desde la última comunicación relevante. Si se inicia una relación contractual, los
+          datos se conservarán mientras esta permanezca vigente y, posteriormente, bloqueados
+          durante los plazos legales aplicables para atender posibles responsabilidades.
+        </p>
+
+        <h2>5. Destinatarios</h2>
+        <p>
+          Los datos no se cederán a terceros salvo obligación legal o cuando resulte necesario para
+          prestar un servicio solicitado. Los proveedores que den soporte técnico, alojamiento o
+          comunicaciones podrán acceder a los datos únicamente como encargados del tratamiento y
+          bajo las garantías contractuales aplicables.
+        </p>
+        <p>
+          Si alguno de estos proveedores tratase datos fuera del Espacio Económico Europeo, se
+          utilizará un mecanismo reconocido por la normativa de protección de datos y se aplicarán
+          las garantías correspondientes.
+        </p>
+
+        <h2>6. Funcionamiento actual de los formularios</h2>
+        <p>
+          En la versión actual, los formularios abren el programa de correo de la persona usuaria.
+          El sitio web no guarda por sí mismo la información en una base de datos. El mensaje se
+          envía mediante el proveedor de correo elegido por la persona usuaria y se recibe en la
+          cuenta profesional de ACUTIS Inmobiliaria.
+        </p>
+
+        <h2>7. Derechos</h2>
+        <p>
+          La persona interesada puede solicitar el acceso, rectificación, supresión, oposición,
+          limitación o portabilidad de sus datos escribiendo a
+          {" "}<a href="mailto:privacidad@acutisinmobiliaria.com">privacidad@acutisinmobiliaria.com</a>.
+          Si fuera necesario para proteger sus datos, podrá solicitarse información adicional para
+          comprobar su identidad.
+        </p>
+        <p>
+          También puede presentar una reclamación ante la
+          {" "}<a href="https://www.aepd.es" rel="noreferrer" target="_blank">Agencia Española de Protección de Datos</a>.
+        </p>
+
+        <h2>8. Seguridad y actualización</h2>
+        <p>
+          Se aplicarán medidas técnicas y organizativas adecuadas al riesgo para proteger la
+          información. Esta política se revisará cuando cambien los formularios, los proveedores o
+          las finalidades del tratamiento.
+        </p>
+
+        <p><strong>Última actualización:</strong> 19 de octubre de 2026.</p>
+      </div>
+    </section>
+  );
+}
