@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { BuyerBriefForm, MarketStudyForm } from "@/components/LandingForms";
+import { BuyerBriefForm, InvestorBriefForm, MarketStudyForm } from "@/components/LandingForms";
 
 export const metadata: Metadata = {
   title: "Estudio de mercado inmobiliario en el Campo de Gibraltar",
@@ -81,7 +81,7 @@ export default function Home() {
             <article><strong>Ámbito</strong><span>Campo de Gibraltar y oportunidades seleccionadas en su entorno.</span></article>
             <article><strong>Acceso</strong><span>Revisamos objetivos y perfil antes de compartir cada operación.</span></article>
           </div>
-          <a id="solicitud-inversores" className="button button-light" href="mailto:alejandro@acutisinmobiliaria.com?subject=Solicitud%20de%20acceso%20privado%20ACUTIS">Solicitar acceso</a>
+          <InvestorBriefForm />
           <small className="investment-note">Cada inversión requiere un análisis individual. La información facilitada no constituye asesoramiento financiero.</small>
         </div>
       </section>
