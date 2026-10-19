@@ -88,10 +88,18 @@ export default function Home() {
 
       <section className="landing-section team-section" id="nosotros">
         <div className="container">
-          <h2>Dirección y asesoramiento<br />comercial inmobiliario.</h2>
+          <div className="team-intro">
+            <div><span className="eyebrow">Nosotros</span><h2>ACUTIS nace de una forma distinta de entender la venta.</h2></div>
+            <div className="team-story">
+              <p>ACUTIS nace en el Campo de Gibraltar con una idea clara: vender una propiedad exige mucho más que publicar un anuncio.</p>
+              <p>Antes de salir al mercado, escuchamos al propietario, analizamos el inmueble, la competencia y la demanda real, y definimos una estrategia de precio, presentación y comercialización.</p>
+              <p>Alejandro dirige la valoración, la estrategia y la negociación. Antonio desarrolla el área comercial. Ambos mantienen un contacto directo con propietarios y compradores y explican qué se está haciendo, por qué y cuál es el siguiente paso.</p>
+            </div>
+          </div>
+          <p className="team-principle">Porque vender bien no empieza al publicar.<br />Empieza tomando una buena decisión.</p>
           <div className="team-grid">
-            <article><div className="team-photo-placeholder" aria-hidden="true" /><div className="team-copy"><h3>Alejandro</h3><p>Propietario y dirección</p><span aria-hidden="true" /></div></article>
-            <article><div className="team-photo-placeholder team-photo-placeholder-alt" aria-hidden="true" /><div className="team-copy"><h3>Antonio</h3><p>Área comercial</p><span aria-hidden="true" /></div></article>
+            <article><span className="team-index">01</span><div className="team-copy"><h3>Alejandro</h3><p>Propietario y dirección</p><small>Valoración, estrategia y negociación</small></div></article>
+            <article><span className="team-index">02</span><div className="team-copy"><h3>Antonio</h3><p>Área comercial</p><small>Relación con propietarios y compradores</small></div></article>
           </div>
         </div>
       </section>
