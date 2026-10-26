@@ -7,9 +7,7 @@ import "./globals.css";
 
 const serif = Cormorant_Garamond({ subsets: ["latin"], variable: "--font-serif", weight: ["400", "500", "600"] });
 const sans = Manrope({ subsets: ["latin"], variable: "--font-sans", weight: ["400", "500", "600"] });
-const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
-  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-  : "https://acutis-inmobiliaria.vercel.app";
+const siteUrl = "https://acutisinmobiliaria.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

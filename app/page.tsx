@@ -7,6 +7,7 @@ import "./faq-layout-v2.css";
 export const metadata: Metadata = {
   title: "Estudio de mercado inmobiliario en el Campo de Gibraltar",
   description: "Analizamos tu propiedad, la competencia y el mercado para definir el precio de salida y la estrategia comercial antes de publicar.",
+  alternates: { canonical: "/" },
 };
 
 const studyPoints = [
