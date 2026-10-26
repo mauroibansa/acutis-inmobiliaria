@@ -59,7 +59,6 @@ export function PropertyGallery({ images, title }: PropertyGalleryProps) {
                 src={image}
                 alt={`${title} — imagen ${index + 1}`}
                 fill
-                priority={index < 2}
                 sizes={index === 0 ? "(max-width: 900px) 100vw, 50vw" : "(max-width: 900px) 50vw, 25vw"}
               />
             </button>
@@ -83,7 +82,6 @@ export function PropertyGallery({ images, title }: PropertyGalleryProps) {
               src={images[activeIndex]}
               alt={`${title} — imagen ${activeIndex + 1}`}
               fill
-              priority
               sizes="100vw"
             />
           </div>

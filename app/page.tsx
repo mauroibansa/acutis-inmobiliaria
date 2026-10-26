@@ -119,7 +119,10 @@ export default function Home() {
   return (
     <div className="landing-home">
       <section className="home-hero" id="inicio">
-        <Image src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2400&q=88" alt="Arquitectura residencial contemporánea de inspiración mediterránea" fill priority sizes="100vw" />
+        <picture className="home-hero-media">
+          <source media="(max-width: 600px)" srcSet="/images/acutis-hero-mobile.avif" />
+          <img src="/images/acutis-hero-desktop.avif" alt="Arquitectura residencial contemporánea de inspiración mediterránea" width="1920" height="1280" fetchPriority="high" loading="eager" decoding="async" />
+        </picture>
         <div className="home-hero-overlay" />
         <div className="container home-hero-content">
           <h1>Vender bien empieza<br />mucho antes de publicar.</h1>

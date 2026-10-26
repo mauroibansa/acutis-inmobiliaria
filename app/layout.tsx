@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { FloatingWhatsapp } from "@/components/FloatingWhatsapp";
 import "./globals.css";
 
 const serif = Cormorant_Garamond({ subsets: ["latin"], variable: "--font-serif", weight: ["400", "500", "600"] });
@@ -20,5 +21,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="es"><body className={`${serif.variable} ${sans.variable}`}><Header /><main>{children}</main><Footer /></body></html>;
+  return <html lang="es"><body className={`${serif.variable} ${sans.variable}`}><Header /><main>{children}</main><Footer /><FloatingWhatsapp /></body></html>;
 }
