@@ -67,7 +67,7 @@ const faqs = [
   },
   {
     question: "¿Cuánto cobra ACUTIS por vender una propiedad?",
-    answer: "Nuestros honorarios habituales son del 3,5 % del precio final de venta más IVA. Se abonan cuando la operación se formaliza y comprenden la preparación, promoción, gestión de compradores, negociación y acompañamiento durante el proceso.",
+    answer: "Nuestros honorarios habituales son del 3,5 % del precio final de venta más IVA, salvo condiciones particulares acordadas. Se abonan cuando la operación se formaliza y comprenden la preparación, promoción, gestión de compradores, negociación y acompañamiento durante el proceso.",
   },
   {
     question: "¿Cómo calculáis el precio de una vivienda?",
