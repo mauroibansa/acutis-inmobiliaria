@@ -145,6 +145,19 @@
 .study-points svg{width:34px;height:34px;margin-bottom:24px;fill:none;stroke:var(--navy);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .study-points h3{font-size:1.55rem;line-height:1.1}
 .study-points p{max-width:230px;margin:14px 0 0;color:var(--muted);line-height:1.55}
+.study-proof{display:grid;grid-template-columns:.78fr 1.22fr;gap:clamp(55px,8vw,110px);align-items:center;margin-top:120px;padding:clamp(55px,7vw,90px);background:var(--ivory);overflow:hidden}
+.study-proof-copy .eyebrow{margin-bottom:22px;color:var(--muted)}
+.study-proof-copy h3{max-width:440px;font-size:clamp(2.5rem,3.7vw,4.2rem);line-height:1.02}
+.study-proof-copy>p{max-width:500px;margin:28px 0;color:var(--muted);font-family:var(--serif);font-size:1.18rem;line-height:1.45}
+.study-proof-copy ul{list-style:none;margin:0 0 34px;padding:0;border-top:1px solid var(--line)}
+.study-proof-copy li{padding:13px 0;border-bottom:1px solid var(--line);color:#44505d;font-size:.78rem}
+.study-proof-copy .button{margin-top:2px}
+.study-proof-copy small{display:block;max-width:460px;margin-top:18px;color:var(--muted);font-size:.65rem;line-height:1.5}
+.study-proof-visual{position:relative;min-height:660px}
+.study-proof-page{position:absolute;width:min(62%,420px);margin:0;background:white;box-shadow:0 24px 58px rgba(6,22,41,.18)}
+.study-proof-page img{display:block;width:100%;height:auto;object-fit:contain}
+.study-proof-page-back{left:0;top:54px;transform:rotate(-4deg)}
+.study-proof-page-front{right:0;top:0;z-index:1;transform:rotate(2deg)}
 .landing-form{display:grid;gap:22px 24px;margin-top:75px}
 .market-study-form{grid-template-columns:repeat(6,1fr)}
 .market-study-form>label:not(.landing-form-span-3):not(.landing-form-full){grid-column:span 2}
@@ -250,6 +263,9 @@
   .process-steps article:nth-child(n+3){border-top:1px solid var(--line)}
   .process-steps article:last-child{grid-column:1/-1}
   .team-intro{grid-template-columns:1fr;gap:55px}
+  .study-proof{grid-template-columns:1fr;gap:60px}
+  .study-proof-copy{max-width:620px}
+  .study-proof-visual{width:min(100%,700px);min-height:690px;margin-inline:auto}
 }
 
 @media(max-width:900px){
@@ -278,6 +294,11 @@
   .landing-heading h2,.team-section h2{font-size:3.2rem}
   .study-points{grid-template-columns:1fr;margin-top:60px}
   .study-points article{padding:30px 22px}
+  .study-proof{margin-top:72px;padding:46px 22px 58px;gap:45px}
+  .study-proof-copy h3{font-size:2.7rem}
+  .study-proof-visual{min-height:455px}
+  .study-proof-page{width:68%}
+  .study-proof-page-back{top:42px}
   .market-study-form{grid-template-columns:1fr;margin-top:55px}
   .market-study-form>label:not(.landing-form-span-3):not(.landing-form-full),.landing-form-span-3{grid-column:1}
   .buyer-image{min-height:460px}

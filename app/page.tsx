@@ -52,6 +52,24 @@ export default function Home() {
           <div className="study-points">
             {studyPoints.map((point) => <article key={point.title}><StudyIcon name={point.icon} /><h3>{point.title}</h3><p>{point.text}</p></article>)}
           </div>
+          <div className="study-proof">
+            <div className="study-proof-copy">
+              <span className="eyebrow">Muestra de entrega</span>
+              <h3>Así convertimos el mercado en una decisión.</h3>
+              <p>No recibirás una estimación automática. El estudio explica qué sostiene el valor, cómo compite la propiedad y qué estrategia de salida recomendamos.</p>
+              <ul>
+                <li>Comparables seleccionados e interpretados</li>
+                <li>Rango de mercado, salida y objetivo de cierre</li>
+                <li>Recomendación comercial argumentada</li>
+              </ul>
+              <a className="button button-dark" href="/documents/ejemplo-estudio-mercado-acutis.pdf" target="_blank" rel="noreferrer">Ver muestra anonimizada</a>
+              <small>Documento demostrativo con datos ficticios. Cada estudio se prepara después de conocer y visitar la propiedad.</small>
+            </div>
+            <div className="study-proof-visual">
+              <figure className="study-proof-page study-proof-page-back"><Image src="/images/ejemplo-estudio-comparables.webp" alt="Ejemplo anonimizado del análisis de inmuebles comparables" width={900} height={1273} sizes="(max-width: 900px) 68vw, 420px" quality={90} /></figure>
+              <figure className="study-proof-page study-proof-page-front"><Image src="/images/ejemplo-estudio-valoracion.webp" alt="Ejemplo anonimizado del rango de valoración y estrategia" width={900} height={1273} sizes="(max-width: 900px) 68vw, 420px" quality={90} /></figure>
+            </div>
+          </div>
           <MarketStudyForm />
         </div>
       </section>
