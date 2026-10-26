@@ -59,12 +59,14 @@ export default function PrivacyPage() {
           las garantías correspondientes.
         </p>
 
-        <h2>6. Funcionamiento actual de los formularios</h2>
+        <h2>6. Envío de formularios</h2>
         <p>
-          En la versión actual, los formularios abren el programa de correo de la persona usuaria.
-          El sitio web no guarda por sí mismo la información en una base de datos. El mensaje se
-          envía mediante el proveedor de correo elegido por la persona usuaria y se recibe en la
-          cuenta profesional de ACUTIS Inmobiliaria.
+          Los formularios transmiten la información directamente a ACUTIS Inmobiliaria mediante
+          un servicio técnico de entrega de correo. El sitio web no crea por este motivo una base
+          de datos comercial ni utiliza la información para finalidades distintas de atender la
+          solicitud. El proveedor de envío puede tratar los datos necesarios como encargado del
+          tratamiento. Actualmente se utiliza Resend, Inc. como proveedor técnico de entrega, bajo
+          las garantías contractuales y de seguridad aplicables.
         </p>
 
         <h2>7. Derechos</h2>
@@ -87,7 +89,7 @@ export default function PrivacyPage() {
           las finalidades del tratamiento.
         </p>
 
-        <p><strong>Última actualización:</strong> 19 de octubre de 2026.</p>
+        <p><strong>Última actualización:</strong> 26 de octubre de 2026.</p>
       </div>
     </section>
   );

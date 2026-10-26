@@ -175,6 +175,11 @@
 .landing-submit{min-height:58px;border:1px solid var(--navy);background:var(--navy);color:white;text-transform:uppercase;letter-spacing:.12em;font-size:.68rem;font-weight:600;cursor:pointer;transition:background .2s,color .2s}
 .landing-submit:hover{background:transparent;color:var(--navy)}
 .landing-form-note{margin:0;text-align:center;color:var(--muted);font-family:var(--serif);font-size:.95rem}
+.landing-honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+.landing-submit:disabled{cursor:wait;opacity:.65}
+.landing-form-status{min-height:1.75em;margin:0;font-family:var(--serif);font-size:1rem;line-height:1.55}
+.landing-form-status.is-success{color:#365e4b}
+.landing-form-status.is-error{color:#8b342d}
 .process-section{background:var(--ivory)}
 .process-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:60px}
 .process-heading .eyebrow{margin:0 0 12px;color:var(--muted)}
