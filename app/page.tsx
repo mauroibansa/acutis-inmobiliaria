@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { BuyerBriefForm, InvestorBriefForm, MarketStudyForm } from "@/components/LandingForms";
+import "./faq-layout-v2.css";
 
 export const metadata: Metadata = {
   title: "Estudio de mercado inmobiliario en el Campo de Gibraltar",
@@ -233,7 +234,7 @@ export default function Home() {
 
       <section className="landing-section faq-section" id="preguntas-frecuentes">
         <div className="container">
-          <div className="faq-heading">
+          <div className="faq-heading-v2">
             <div className="faq-title-block">
               <span className="eyebrow">Preguntas frecuentes</span>
               <h2>Lo importante,<br />antes de empezar.</h2>

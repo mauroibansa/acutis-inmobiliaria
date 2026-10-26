@@ -253,11 +253,6 @@
 .team-copy p{margin:8px 0 12px;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;font-size:.68rem}
 .team-copy small{color:var(--muted);font-family:var(--serif);font-size:1rem}
 .faq-section{background:var(--paper)}
-.faq-heading{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,.55fr);gap:clamp(70px,10vw,150px);align-items:end;margin-bottom:80px}
-.faq-title-block{max-width:720px}
-.faq-heading .eyebrow{margin:0 0 28px;color:var(--muted)}
-.faq-heading h2{font-size:clamp(3.5rem,5vw,5.6rem)}
-.faq-heading>p{max-width:390px;margin:0 0 8px;color:var(--muted);font-family:var(--serif);font-size:1.15rem;line-height:1.5}
 .faq-list{border-top:1px solid var(--line)}
 .faq-list details{border-bottom:1px solid var(--line)}
 .faq-list summary{display:grid;grid-template-columns:58px 1fr auto;gap:25px;align-items:center;padding:29px 0;cursor:pointer;list-style:none}
@@ -301,7 +296,6 @@
   .study-proof-visual{width:min(100%,700px);min-height:690px;margin-inline:auto}
   .cases-heading{grid-template-columns:1fr;gap:34px}
   .cases-grid article,.cases-grid article:nth-child(n+3){grid-column:span 3;min-height:440px}
-  .faq-heading{grid-template-columns:minmax(0,1fr) minmax(260px,.55fr);gap:50px}
 }
 
 @media(max-width:900px){
@@ -315,8 +309,6 @@
   .investor-form{grid-template-columns:1fr 1fr}
   .footer-compact-inner{grid-template-columns:1fr auto}
   .footer-compact nav{grid-row:2;grid-column:1/-1;justify-content:flex-start}
-  .faq-heading{grid-template-columns:1fr;gap:32px}
-  .faq-heading>p{max-width:560px}
 }
 
 @media(max-width:600px){
@@ -362,8 +354,6 @@
   .team-grid::before,.team-grid::after{display:none}
   .team-photo{box-shadow:0 16px 38px rgba(6,22,41,.1)}
   .team-member-meta{grid-template-columns:38px 1fr;gap:18px;padding:26px 0 30px}
-  .faq-heading{margin-bottom:55px}
-  .faq-heading h2{font-size:3.15rem}
   .faq-list summary{grid-template-columns:30px 1fr auto;gap:12px;padding:24px 0}
   .faq-list summary strong{font-size:1.35rem}
   .faq-list summary::after{width:30px;height:30px}
