@@ -234,8 +234,10 @@ export default function Home() {
       <section className="landing-section faq-section" id="preguntas-frecuentes">
         <div className="container">
           <div className="faq-heading">
-            <span className="eyebrow">Preguntas frecuentes</span>
-            <h2>Lo importante,<br />antes de empezar.</h2>
+            <div className="faq-title-block">
+              <span className="eyebrow">Preguntas frecuentes</span>
+              <h2>Lo importante,<br />antes de empezar.</h2>
+            </div>
             <p>Condiciones, proceso y documentación explicados con claridad antes de tomar ninguna decisión.</p>
           </div>
           <div className="faq-list">
