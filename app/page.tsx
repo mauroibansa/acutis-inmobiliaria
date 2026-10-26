@@ -56,6 +56,57 @@ const realCases = [
   },
 ];
 
+const faqs = [
+  {
+    question: "¿El estudio de mercado tiene algún coste?",
+    answer: "No. El estudio inicial de la vivienda es gratuito y no implica ningún compromiso. Su finalidad es ayudarte a conocer el mercado, el rango de valor del inmueble y la estrategia más adecuada para su venta.",
+  },
+  {
+    question: "¿Tengo que firmar una exclusiva?",
+    answer: "No necesariamente. En ACUTIS podemos estudiar distintas formas de colaboración, con exclusiva o sin ella. Antes de decidir, te explicaremos claramente qué incluye cada opción y cuál puede resultar más adecuada para tu vivienda.",
+  },
+  {
+    question: "¿Cuánto cobra ACUTIS por vender una propiedad?",
+    answer: "Nuestros honorarios habituales son del 3,5 % del precio final de venta más IVA. Se abonan cuando la operación se formaliza y comprenden la preparación, promoción, gestión de compradores, negociación y acompañamiento durante el proceso.",
+  },
+  {
+    question: "¿Cómo calculáis el precio de una vivienda?",
+    answer: "Analizamos la ubicación, superficie, estado, características, competencia actualmente anunciada y propiedades comparables de la zona. Con esta información establecemos un rango de valor y recomendamos un precio de salida razonado.",
+  },
+  {
+    question: "¿La valoración es una tasación oficial?",
+    answer: "No. Es un estudio comercial de mercado elaborado para orientar la venta. Si necesitas una tasación oficial para una hipoteca, procedimiento judicial o trámite administrativo, deberá realizarla una sociedad de tasación homologada.",
+  },
+  {
+    question: "¿Cuánto se tarda en vender una vivienda?",
+    answer: "Depende de la ubicación, el estado, la demanda y, especialmente, del precio de salida. Después de estudiar la propiedad podremos ofrecerte una estimación razonable, pero evitamos prometer plazos que no podamos garantizar.",
+  },
+  {
+    question: "¿Qué documentación necesito para empezar?",
+    answer: "Inicialmente basta con identificar la vivienda y realizar una visita. Antes de comercializarla revisaremos la documentación necesaria, como escritura, nota simple, referencia catastral, certificado energético, recibo del IBI y, cuando corresponda, información de la comunidad.",
+  },
+  {
+    question: "¿Puedo vender si todavía tengo hipoteca?",
+    answer: "Sí. La hipoteca pendiente puede cancelarse con parte del importe de la compraventa. Antes de aceptar una oferta conviene solicitar al banco el capital pendiente y calcular todos los gastos de cancelación.",
+  },
+  {
+    question: "¿Cómo seleccionáis a los compradores?",
+    answer: "Antes de avanzar en una negociación intentamos conocer sus necesidades, presupuesto y situación financiera. Cuando la compra depende de financiación, recomendamos comprobar previamente su capacidad económica para reducir visitas y propuestas con pocas posibilidades de completarse.",
+  },
+  {
+    question: "¿Qué incluye el servicio de ACUTIS?",
+    answer: "Incluye análisis de mercado, estrategia de precio, preparación y presentación del inmueble, publicación, gestión de consultas y visitas, selección de compradores, negociación y acompañamiento hasta la firma.",
+  },
+  {
+    question: "¿Puedo solicitar el estudio aunque todavía no haya decidido vender?",
+    answer: "Sí. El estudio también puede ayudarte a valorar tus opciones y tomar una decisión con más información. No es necesario poner la vivienda inmediatamente a la venta.",
+  },
+  {
+    question: "¿En qué zonas trabajáis?",
+    answer: "Trabajamos principalmente en el Campo de Gibraltar, incluyendo Algeciras, Los Barrios, La Línea de la Concepción, San Roque, Guadiaro, Sotogrande y localidades cercanas.",
+  },
+];
+
 function StudyIcon({ name }: { name: string }) {
   if (name === "chart") return <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 27V17h5v10M14 27V11h5v16M23 27V5h4v22M3 27h26" /></svg>;
   if (name === "search") return <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="14" cy="14" r="9" /><path d="m21 21 7 7" /></svg>;
@@ -176,6 +227,24 @@ export default function Home() {
               <div className="team-photo"><Image src="/team/acutis-equipo-retrato-02.png" alt="Retrato de Antonio" fill sizes="(max-width: 600px) calc(100vw - 32px), 50vw" quality={90} /></div>
               <div className="team-member-meta"><span className="team-index">02</span><div className="team-copy"><h3>Antonio González Romero</h3><p>Área comercial</p><small>Relación con propietarios y compradores</small></div></div>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="landing-section faq-section" id="preguntas-frecuentes">
+        <div className="container">
+          <div className="faq-heading">
+            <span className="eyebrow">Preguntas frecuentes</span>
+            <h2>Lo importante,<br />antes de empezar.</h2>
+            <p>Condiciones, proceso y documentación explicados con claridad antes de tomar ninguna decisión.</p>
+          </div>
+          <div className="faq-list">
+            {faqs.map((item, index) => (
+              <details key={item.question} open={index === 0}>
+                <summary><span>{String(index + 1).padStart(2, "0")}</span><strong>{item.question}</strong></summary>
+                <p>{item.answer}</p>
+              </details>
+            ))}
           </div>
         </div>
       </section>

@@ -250,6 +250,20 @@
 .team-copy h3{font-family:var(--serif);font-size:1.35rem;text-transform:uppercase;letter-spacing:.04em}
 .team-copy p{margin:8px 0 12px;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;font-size:.68rem}
 .team-copy small{color:var(--muted);font-family:var(--serif);font-size:1rem}
+.faq-section{background:var(--paper)}
+.faq-heading{display:grid;grid-template-columns:.52fr 1.08fr .72fr;gap:clamp(35px,6vw,90px);align-items:end;margin-bottom:80px}
+.faq-heading .eyebrow{margin:0 0 11px;color:var(--muted)}
+.faq-heading h2{font-size:clamp(3.5rem,5vw,5.6rem)}
+.faq-heading>p{max-width:420px;margin:0 0 8px;color:var(--muted);font-family:var(--serif);font-size:1.15rem;line-height:1.5}
+.faq-list{border-top:1px solid var(--line)}
+.faq-list details{border-bottom:1px solid var(--line)}
+.faq-list summary{display:grid;grid-template-columns:58px 1fr auto;gap:25px;align-items:center;padding:29px 0;cursor:pointer;list-style:none}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary>span{color:var(--muted);font-size:.62rem;letter-spacing:.16em}
+.faq-list summary strong{font-family:var(--serif);font-size:clamp(1.35rem,2vw,1.85rem);font-weight:500;line-height:1.2}
+.faq-list summary::after{content:"+";display:grid;place-items:center;width:34px;height:34px;border:1px solid var(--line);font-family:var(--sans);font-size:1.1rem;font-weight:300;transition:transform .2s}
+.faq-list details[open] summary::after{content:"−"}
+.faq-list details>p{max-width:780px;margin:0 70px 30px 83px;color:var(--muted);font-family:var(--serif);font-size:1.08rem;line-height:1.6}
 .closing-section{min-height:440px;display:flex;align-items:center;text-align:center}
 .topographic-layer-closing{opacity:.3;transform:rotate(7deg) scale(1.18);background-position:20vw 4vh,-16vw 12vh}
 .closing-content{display:flex;flex-direction:column;align-items:center;justify-content:center}
@@ -283,6 +297,8 @@
   .study-proof-visual{width:min(100%,700px);min-height:690px;margin-inline:auto}
   .cases-heading{grid-template-columns:1fr;gap:34px}
   .cases-grid article,.cases-grid article:nth-child(n+3){grid-column:span 3;min-height:440px}
+  .faq-heading{grid-template-columns:1fr;gap:25px}
+  .faq-heading .eyebrow{margin-bottom:3px}
 }
 
 @media(max-width:900px){
@@ -339,6 +355,12 @@
   .team-principle{margin-top:60px;padding:38px 0;font-size:2.45rem}
   .team-grid{grid-template-columns:1fr;gap:42px;margin-top:58px}
   .team-member-meta{grid-template-columns:38px 1fr;gap:18px;padding:26px 0 30px}
+  .faq-heading{margin-bottom:55px}
+  .faq-heading h2{font-size:3.15rem}
+  .faq-list summary{grid-template-columns:30px 1fr auto;gap:12px;padding:24px 0}
+  .faq-list summary strong{font-size:1.35rem}
+  .faq-list summary::after{width:30px;height:30px}
+  .faq-list details>p{margin:0 42px 26px;color:var(--muted);font-size:1rem}
   .closing-section{min-height:500px}
   .closing-content h2{font-size:3.15rem}
   .closing-content>div{width:100%;flex-direction:column}
