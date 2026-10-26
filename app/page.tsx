@@ -100,11 +100,11 @@ export default function Home() {
           <div className="team-grid">
             <article>
               <div className="team-photo"><Image src="/team/acutis-equipo-retrato-01.png" alt="Retrato de Alejandro" fill sizes="(max-width: 600px) calc(100vw - 32px), 50vw" quality={90} /></div>
-              <div className="team-member-meta"><span className="team-index">01</span><div className="team-copy"><h3>Alejandro</h3><p>Propietario y dirección</p><small>Valoración, estrategia y negociación</small></div></div>
+              <div className="team-member-meta"><span className="team-index">01</span><div className="team-copy"><h3>Alejandro Ibanco Saborido</h3><p>Propietario y dirección</p><small>Valoración, estrategia y negociación</small></div></div>
             </article>
             <article>
               <div className="team-photo"><Image src="/team/acutis-equipo-retrato-02.png" alt="Retrato de Antonio" fill sizes="(max-width: 600px) calc(100vw - 32px), 50vw" quality={90} /></div>
-              <div className="team-member-meta"><span className="team-index">02</span><div className="team-copy"><h3>Antonio</h3><p>Área comercial</p><small>Relación con propietarios y compradores</small></div></div>
+              <div className="team-member-meta"><span className="team-index">02</span><div className="team-copy"><h3>Antonio González Romero</h3><p>Área comercial</p><small>Relación con propietarios y compradores</small></div></div>
             </article>
           </div>
         </div>
