@@ -23,6 +23,39 @@ const processSteps = [
   ["05", "Acompañamos", "Filtramos visitas, negociamos y seguimos la operación hasta la firma."],
 ];
 
+const realCases = [
+  {
+    category: "Reposicionamiento",
+    title: "Una vivienda que llevaba meses anunciada sin resultados",
+    work: "Revisamos el precio, la presentación del anuncio y el perfil del comprador. Después redefinimos la estrategia, la selección de fotografías y el orden de la información.",
+    result: "Un anuncio mejor posicionado, consultas más cualificadas y una negociación planteada sobre datos reales.",
+  },
+  {
+    category: "Valoración",
+    title: "Una propietaria que no sabía qué precio pedir",
+    work: "Contrastamos comparables, conservación, superficie, ubicación y competencia para establecer un rango de valor razonable.",
+    result: "Pudo decidir con mayor seguridad y evitar un precio inicial que perjudicara el interés por la vivienda.",
+  },
+  {
+    category: "Coordinación",
+    title: "Una venta entre varios propietarios",
+    work: "Explicamos el valor, los gastos y los pasos de la operación; ordenamos la documentación y fijamos un procedimiento común para visitas y propuestas.",
+    result: "Una venta organizada, con menos incertidumbre y una comunicación clara entre todas las partes.",
+  },
+  {
+    category: "Compradores",
+    title: "Interés real, pero dudas sobre la financiación",
+    work: "Comprobamos la situación económica y el margen real de compra antes de programar nuevas visitas.",
+    result: "Propietarios mejor protegidos frente a visitas poco cualificadas y compradores con expectativas realistas.",
+  },
+  {
+    category: "Presentación",
+    title: "Una vivienda cuyo potencial no aparecía en el anuncio",
+    work: "Identificamos los argumentos diferenciales, reorganizamos el reportaje y redactamos el anuncio para el comprador adecuado.",
+    result: "Una presentación más atractiva, clara y coherente con el valor real del inmueble.",
+  },
+];
+
 function StudyIcon({ name }: { name: string }) {
   if (name === "chart") return <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 27V17h5v10M14 27V11h5v16M23 27V5h4v22M3 27h26" /></svg>;
   if (name === "search") return <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="14" cy="14" r="9" /><path d="m21 21 7 7" /></svg>;
@@ -79,6 +112,25 @@ export default function Home() {
           <div className="process-heading"><span className="eyebrow">Cómo trabajamos</span><h2>De la primera conversación<br />hasta la firma.</h2></div>
           <div className="process-steps">
             {processSteps.map(([number, title, text]) => <article key={number}><span>{number}</span><h3>{title}</h3><p>{text}</p></article>)}
+          </div>
+        </div>
+      </section>
+
+      <section className="landing-section cases-section" id="casos">
+        <div className="container">
+          <div className="cases-heading">
+            <div><span className="eyebrow">Casos reales</span><h2>Problemas concretos.<br />Decisiones mejor fundamentadas.</h2></div>
+            <p>Ejemplos de trabajo realizados por ACUTIS. Omitimos nombres, direcciones y cualquier dato que pueda identificar a las personas o propiedades.</p>
+          </div>
+          <div className="cases-grid">
+            {realCases.map((item, index) => (
+              <article key={item.title}>
+                <div className="case-meta"><span>{String(index + 1).padStart(2, "0")}</span><strong>{item.category}</strong></div>
+                <h3>{item.title}</h3>
+                <p>{item.work}</p>
+                <div className="case-result"><span>Resultado</span><p>{item.result}</p></div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
