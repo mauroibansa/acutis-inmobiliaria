@@ -155,8 +155,8 @@ export default function Home() {
               <small>Documento demostrativo con datos ficticios. Cada estudio se prepara después de conocer y visitar la propiedad.</small>
             </div>
             <div className="study-proof-visual">
-              <figure className="study-proof-page study-proof-page-back"><Image src="/images/ejemplo-estudio-comparables.webp" alt="Ejemplo anonimizado del análisis de inmuebles comparables" width={900} height={1273} sizes="(max-width: 900px) 68vw, 420px" quality={90} /></figure>
-              <figure className="study-proof-page study-proof-page-front"><Image src="/images/ejemplo-estudio-valoracion.webp" alt="Ejemplo anonimizado del rango de valoración y estrategia" width={900} height={1273} sizes="(max-width: 900px) 68vw, 420px" quality={90} /></figure>
+              <figure className="study-proof-page study-proof-page-back"><Image src="/images/ejemplo-estudio-comparables.webp" alt="Ejemplo anonimizado del análisis de inmuebles comparables" width={900} height={1273} sizes="(max-width: 600px) 240px, 420px" quality={75} /></figure>
+              <figure className="study-proof-page study-proof-page-front"><Image src="/images/ejemplo-estudio-valoracion.webp" alt="Ejemplo anonimizado del rango de valoración y estrategia" width={900} height={1273} sizes="(max-width: 600px) 240px, 420px" quality={75} /></figure>
             </div>
           </div>
           <MarketStudyForm />
