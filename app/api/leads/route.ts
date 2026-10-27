@@ -1,9 +1,6 @@
 type LeadType = "venta" | "compra" | "inversion" | "contacto";
 
-const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000;
-const RATE_LIMIT_MAX_REQUESTS = 5;
 const MAX_BODY_BYTES = 25_000;
-const rateLimitStore = new Map<string, { count: number; resetAt: number }>();
 
 const leadConfig: Record<LeadType, { subject: string; fields: Array<[string, string]> }> = {
   venta: {
@@ -37,30 +34,6 @@ function isEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
-function getClientIp(request: Request) {
-  return (request.headers.get("x-forwarded-for")?.split(",")[0] ?? request.headers.get("x-real-ip") ?? "unknown").trim();
-}
-
-function isRateLimited(ip: string) {
-  const now = Date.now();
-
-  if (rateLimitStore.size > 500) {
-    for (const [storedIp, entry] of rateLimitStore) {
-      if (entry.resetAt <= now) rateLimitStore.delete(storedIp);
-    }
-  }
-
-  const current = rateLimitStore.get(ip);
-
-  if (!current || current.resetAt <= now) {
-    rateLimitStore.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
-    return false;
-  }
-
-  current.count += 1;
-  return current.count > RATE_LIMIT_MAX_REQUESTS;
-}
-
 export async function POST(request: Request) {
   const requestOrigin = new URL(request.url).origin;
   const origin = request.headers.get("origin");
@@ -68,13 +41,6 @@ export async function POST(request: Request) {
 
   const contentLength = Number(request.headers.get("content-length") ?? 0);
   if (contentLength > MAX_BODY_BYTES) return Response.json({ ok: false }, { status: 413 });
-
-  if (isRateLimited(getClientIp(request))) {
-    return Response.json(
-      { ok: false },
-      { status: 429, headers: { "Retry-After": String(RATE_LIMIT_WINDOW_MS / 1000), "Cache-Control": "no-store" } },
-    );
-  }
 
   let formData: FormData;
   try {
