@@ -1,4 +1,9 @@
-type LeadType = "venta" | "compra" | "inversion";
+type LeadType = "venta" | "compra" | "inversion" | "contacto";
+
+const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000;
+const RATE_LIMIT_MAX_REQUESTS = 5;
+const MAX_BODY_BYTES = 25_000;
+const rateLimitStore = new Map<string, { count: number; resetAt: number }>();
 
 const leadConfig: Record<LeadType, { subject: string; fields: Array<[string, string]> }> = {
   venta: {
@@ -12,6 +17,10 @@ const leadConfig: Record<LeadType, { subject: string; fields: Array<[string, str
   inversion: {
     subject: "Nueva solicitud de acceso para inversores",
     fields: [["nombre", "Nombre"], ["telefono", "Teléfono"], ["zona", "Zona de interés"], ["presupuesto", "Presupuesto"], ["activo", "Tipo de activo"], ["rentabilidad", "Objetivo de rentabilidad"]],
+  },
+  contacto: {
+    subject: "Nueva consulta desde la web",
+    fields: [["nombre", "Nombre"], ["telefono", "Teléfono"], ["email", "Email"], ["mensaje", "Consulta"]],
   },
 };
 
@@ -28,10 +37,44 @@ function isEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
+function getClientIp(request: Request) {
+  return (request.headers.get("x-forwarded-for")?.split(",")[0] ?? request.headers.get("x-real-ip") ?? "unknown").trim();
+}
+
+function isRateLimited(ip: string) {
+  const now = Date.now();
+
+  if (rateLimitStore.size > 500) {
+    for (const [storedIp, entry] of rateLimitStore) {
+      if (entry.resetAt <= now) rateLimitStore.delete(storedIp);
+    }
+  }
+
+  const current = rateLimitStore.get(ip);
+
+  if (!current || current.resetAt <= now) {
+    rateLimitStore.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
+    return false;
+  }
+
+  current.count += 1;
+  return current.count > RATE_LIMIT_MAX_REQUESTS;
+}
+
 export async function POST(request: Request) {
   const requestOrigin = new URL(request.url).origin;
   const origin = request.headers.get("origin");
   if (origin && origin !== requestOrigin) return Response.json({ ok: false }, { status: 403 });
+
+  const contentLength = Number(request.headers.get("content-length") ?? 0);
+  if (contentLength > MAX_BODY_BYTES) return Response.json({ ok: false }, { status: 413 });
+
+  if (isRateLimited(getClientIp(request))) {
+    return Response.json(
+      { ok: false },
+      { status: 429, headers: { "Retry-After": String(RATE_LIMIT_WINDOW_MS / 1000), "Cache-Control": "no-store" } },
+    );
+  }
 
   let formData: FormData;
   try {
@@ -67,7 +110,7 @@ export async function POST(request: Request) {
   const submittedAt = new Intl.DateTimeFormat("es-ES", { dateStyle: "full", timeStyle: "short", timeZone: "Europe/Madrid" }).format(new Date());
   const rows = values.map(({ label, value }) => `<tr><td style="padding:10px 14px;border-bottom:1px solid #d9d5ca;color:#66717d;font-size:12px;text-transform:uppercase;letter-spacing:.08em">${escapeHtml(label)}</td><td style="padding:10px 14px;border-bottom:1px solid #d9d5ca;color:#071a2f;font-size:15px">${escapeHtml(value)}</td></tr>`).join("");
   const text = [`${config.subject} — ACUTIS`, "", ...values.map(({ label, value }) => `${label}: ${value}`), "", `Recibida: ${submittedAt}`, sourceUrl ? `Página: ${sourceUrl}` : ""].filter(Boolean).join("\n");
-  const possibleEmail = values.find(({ key }) => key === "contacto")?.value ?? "";
+  const possibleEmail = values.find(({ key }) => key === "contacto" || key === "email")?.value ?? "";
   const contactName = (values.find(({ key }) => key === "nombre")?.value ?? "Web ACUTIS").replace(/[\r\n]+/g, " ").slice(0, 120);
 
   const response = await fetch("https://api.resend.com/emails", {

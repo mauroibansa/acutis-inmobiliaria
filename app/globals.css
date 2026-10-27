@@ -386,4 +386,8 @@
   .footer-contact-inline{align-items:flex-start;padding-right:0}
 }
 
+.form-status{min-height:1.75em;margin:0;font-family:var(--serif);font-size:1rem;line-height:1.55}
+.form-status.is-success{color:#365e4b}
+.form-status.is-error{color:#8b342d}
+
 @media(prefers-reduced-motion:reduce){.topographic-layer{background-attachment:scroll}}
