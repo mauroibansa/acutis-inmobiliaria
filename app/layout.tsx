@@ -19,6 +19,12 @@ const organizationJsonLd = {
   image: `${siteUrl}/opengraph-image.png`,
   telephone: "+34645435228",
   email: "alejandro@acutisinmobiliaria.com",
+  sameAs: [
+    "https://www.facebook.com/profile.php?id=61596006564630",
+    "https://www.linkedin.com/company/acutis-inmobiliaria/",
+    "https://www.tiktok.com/@acutisinmobiliaria",
+    "https://www.instagram.com/acutisinmobiliaria/",
+  ],
   address: {
     "@type": "PostalAddress",
     streetAddress: "C/ Regino Martínez, 3, 2.º A",
@@ -40,5 +46,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="es"><body className={`${serif.variable} ${sans.variable}`}><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c") }} /><Header /><main>{children}</main><Footer /><FloatingWhatsapp /></body></html>;
+  return <html lang="es" id="top"><body className={`${serif.variable} ${sans.variable}`}><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c") }} /><Header /><main>{children}</main><Footer /><FloatingWhatsapp /></body></html>;
 }
