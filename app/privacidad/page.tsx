@@ -32,6 +32,12 @@ export default function PrivacyPage() {
           contractual. No se adoptan decisiones automatizadas ni se elaboran perfiles con efectos
           jurídicos sobre las personas usuarias.
         </p>
+        <p>
+          Cuando se aceptan las cookies analíticas, también se tratan identificadores seudónimos,
+          datos técnicos del navegador y del dispositivo e información sobre la navegación y las
+          interacciones con el sitio. Su única finalidad es elaborar estadísticas de uso, comprobar
+          el funcionamiento de la web y mejorar sus contenidos y vías de contacto.
+        </p>
 
         <h2>3. Base jurídica</h2>
         <p>
@@ -40,6 +46,11 @@ export default function PrivacyPage() {
           el cumplimiento de obligaciones legales. No se utilizarán estos datos para enviar
           comunicaciones comerciales ajenas a la solicitud sin una base jurídica específica.
         </p>
+        <p>
+          La medición con Google Analytics se basa exclusivamente en el consentimiento, que puede
+          rechazarse o retirarse en cualquier momento desde «Configurar cookies» sin que ello afecte
+          al acceso a la web ni a la licitud del tratamiento anterior a su retirada.
+        </p>
 
         <h2>4. Conservación</h2>
         <p>
@@ -47,6 +58,11 @@ export default function PrivacyPage() {
           meses desde la última comunicación relevante. Si se inicia una relación contractual, los
           datos se conservarán mientras esta permanezca vigente y, posteriormente, bloqueados
           durante los plazos legales aplicables para atender posibles responsabilidades.
+        </p>
+        <p>
+          Los datos de usuario y de eventos de Google Analytics se conservarán durante un máximo de
+          14 meses. La preferencia de consentimiento se recuerda durante un máximo de 12 meses. Las
+          duraciones concretas de las cookies se detallan en la <a href="/cookies">política de cookies</a>.
         </p>
 
         <h2>5. Destinatarios</h2>
@@ -72,7 +88,22 @@ export default function PrivacyPage() {
           las garantías contractuales y de seguridad aplicables.
         </p>
 
-        <h2>7. Derechos</h2>
+        <h2>7. Medición con Google Analytics</h2>
+        <p>
+          Si la persona usuaria lo acepta, se utiliza Google Analytics 4, prestado por Google Ireland
+          Limited, como encargado del tratamiento. La configuración de ACUTIS no habilita Google
+          Signals, personalización publicitaria ni cookies de publicidad, y los formularios no envían
+          a Analytics nombres, teléfonos, correos electrónicos ni el contenido de las solicitudes.
+        </p>
+        <p>
+          Google puede tratar información técnica desde infraestructuras situadas fuera del Espacio
+          Económico Europeo aplicando los mecanismos y garantías previstos en sus condiciones de
+          tratamiento. Google indica que Analytics no registra ni almacena las direcciones IP y que
+          estas se descartan después de obtener datos geográficos aproximados y proteger el servicio.
+          Puede consultarse más información en la <a href="https://support.google.com/analytics/answer/6004245?hl=es" rel="noreferrer" target="_blank">información de privacidad de Google Analytics</a>.
+        </p>
+
+        <h2>8. Derechos</h2>
         <p>
           La persona interesada puede solicitar el acceso, rectificación, supresión, oposición,
           limitación o portabilidad de sus datos escribiendo a
@@ -85,14 +116,14 @@ export default function PrivacyPage() {
           {" "}<a href="https://www.aepd.es" rel="noreferrer" target="_blank">Agencia Española de Protección de Datos</a>.
         </p>
 
-        <h2>8. Seguridad y actualización</h2>
+        <h2>9. Seguridad y actualización</h2>
         <p>
           Se aplicarán medidas técnicas y organizativas adecuadas al riesgo para proteger la
           información. Esta política se revisará cuando cambien los formularios, los proveedores o
           las finalidades del tratamiento.
         </p>
 
-        <p><strong>Última actualización:</strong> 26 de octubre de 2026.</p>
+        <p><strong>Última actualización:</strong> 28 de octubre de 2026.</p>
       </div>
     </section>
   );
