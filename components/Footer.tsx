@@ -5,7 +5,7 @@ export function Footer() {
     <footer className="footer footer-compact">
       <div className="container footer-compact-inner">
         <Link className="footer-brand" href="/" aria-label="ACUTIS, inicio">ACUTIS</Link>
-        <nav aria-label="Enlaces legales"><Link href="/aviso-legal">Aviso legal</Link><Link href="/privacidad">Política de privacidad</Link><Link href="/cookies">Política de cookies</Link></nav>
+        <nav aria-label="Enlaces legales"><Link href="/aviso-legal">Aviso legal</Link><Link href="/privacidad">Política de privacidad</Link><Link href="/cookies">Política de cookies</Link><button className="footer-cookie-settings" type="button" data-cookie-settings>Configurar cookies</button></nav>
         <div className="footer-contact-inline"><a href="tel:+34645435228">645 435 228</a><a href="mailto:alejandro@acutisinmobiliaria.com">alejandro@acutisinmobiliaria.com</a></div>
         <nav className="footer-socials" aria-label="Redes sociales de ACUTIS">
           <a href="https://www.instagram.com/acutisinmobiliaria/" target="_blank" rel="noreferrer" aria-label="ACUTIS en Instagram">Instagram</a>

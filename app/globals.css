@@ -286,10 +286,21 @@
 .footer-compact-inner{display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:clamp(26px,3vw,48px)}
 .footer-compact .footer-brand{font-size:1.55rem}
 .footer-compact nav{display:flex;gap:28px}
-.footer-compact nav a,.footer-contact-inline a{margin:0;color:rgba(255,255,255,.62);text-transform:uppercase;letter-spacing:.1em;font-size:.58rem;transition:color .2s}
-.footer-compact nav a:hover,.footer-contact-inline a:hover{color:white}
+.footer-compact nav a,.footer-contact-inline a,.footer-cookie-settings{margin:0;color:rgba(255,255,255,.62);text-transform:uppercase;letter-spacing:.1em;font-size:.58rem;transition:color .2s}
+.footer-cookie-settings{padding:0;border:0;background:none;cursor:pointer}
+.footer-compact nav a:hover,.footer-contact-inline a:hover,.footer-cookie-settings:hover{color:white}
 .footer-contact-inline{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
 .footer-socials{display:grid!important;grid-template-columns:repeat(2,auto);gap:4px 16px!important;padding-left:26px;border-left:1px solid rgba(255,255,255,.14)}
+.cookie-consent{position:fixed;z-index:100;right:24px;bottom:24px;left:24px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:42px;align-items:end;max-width:1120px;margin-inline:auto;padding:34px 38px;border:1px solid rgba(255,255,255,.16);background:#06182a;color:white;box-shadow:0 24px 70px rgba(3,16,31,.32)}
+.cookie-consent-copy{max-width:730px}
+.cookie-consent-eyebrow{display:block;margin-bottom:12px;color:rgba(255,255,255,.58);text-transform:uppercase;letter-spacing:.18em;font-size:.58rem;font-weight:600}
+.cookie-consent h2{font-size:clamp(2rem,3vw,3rem);line-height:1.02}
+.cookie-consent p{margin:16px 0 0;color:rgba(255,255,255,.72);font-size:.86rem;line-height:1.65}
+.cookie-consent p a{border-bottom:1px solid rgba(255,255,255,.45);color:white}
+.cookie-consent-actions{display:flex;gap:12px}
+.cookie-consent-button{min-height:48px;padding:0 20px;border:1px solid rgba(255,255,255,.55);cursor:pointer;text-transform:uppercase;letter-spacing:.1em;font-size:.6rem;font-weight:600}
+.cookie-consent-button.is-secondary{background:transparent;color:white}
+.cookie-consent-button.is-primary{border-color:var(--ivory);background:var(--ivory);color:var(--navy)}
 
 @media(max-width:1000px){
   .floating-actions{right:18px}
@@ -328,6 +339,7 @@
   .footer-compact-inner{grid-template-columns:1fr auto}
   .footer-compact nav:not(.footer-socials){grid-row:2;grid-column:1/-1;justify-content:flex-start}
   .footer-socials{grid-row:3;grid-column:1/-1;padding:18px 0 0;border-top:1px solid rgba(255,255,255,.14);border-left:0}
+  .cookie-consent{grid-template-columns:1fr;gap:26px}
 }
 
 @media(max-width:600px){
@@ -393,6 +405,9 @@
   .footer-compact nav{grid-row:auto;grid-column:auto;flex-direction:column;gap:10px}
   .footer-contact-inline{align-items:flex-start;padding-right:0}
   .footer-socials{display:flex!important;flex-flow:row wrap!important;gap:10px 22px!important;padding-top:22px}
+  .cookie-consent{right:12px;bottom:12px;left:12px;gap:22px;padding:26px 22px}
+  .cookie-consent-actions{display:grid;grid-template-columns:1fr 1.35fr}
+  .cookie-consent-button{padding:0 12px}
 }
 
 .form-status{min-height:1.75em;margin:0;font-family:var(--serif);font-size:1rem;line-height:1.55}

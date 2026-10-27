@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { FormEvent, ReactNode } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 type LeadType = "venta" | "compra" | "inversion";
 type SubmitState = "idle" | "sending" | "success" | "error";
@@ -27,6 +28,7 @@ function LeadForm({ id, className, leadType, submitLabel, note, children }: { id
     try {
       const response = await fetch("/api/leads", { method: "POST", body: new FormData(form) });
       if (!response.ok) throw new Error("No se pudo enviar la solicitud");
+      trackEvent("lead_submit", { lead_type: leadType });
       form.reset();
       setSubmitState("success");
     } catch {
