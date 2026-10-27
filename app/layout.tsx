@@ -8,6 +8,27 @@ import "./globals.css";
 const serif = Cormorant_Garamond({ subsets: ["latin"], variable: "--font-serif", weight: ["400", "500", "600"] });
 const sans = Manrope({ subsets: ["latin"], variable: "--font-sans", weight: ["400", "500", "600"] });
 const siteUrl = "https://acutisinmobiliaria.com";
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "@id": `${siteUrl}/#organization`,
+  name: "ACUTIS Inmobiliaria",
+  legalName: "Alejandro Ibanco Saborido",
+  url: siteUrl,
+  logo: `${siteUrl}/brand/ACUTIS-logo-02.svg`,
+  image: `${siteUrl}/opengraph-image.png`,
+  telephone: "+34645435228",
+  email: "alejandro@acutisinmobiliaria.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "C/ Regino Martínez, 3, 2.º A",
+    postalCode: "11201",
+    addressLocality: "Algeciras",
+    addressRegion: "Cádiz",
+    addressCountry: "ES",
+  },
+  areaServed: ["Algeciras", "Los Barrios", "La Línea de la Concepción", "San Roque", "Guadiaro", "Sotogrande", "Campo de Gibraltar"],
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -19,5 +40,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="es"><body className={`${serif.variable} ${sans.variable}`}><Header /><main>{children}</main><Footer /><FloatingWhatsapp /></body></html>;
+  return <html lang="es"><body className={`${serif.variable} ${sans.variable}`}><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c") }} /><Header /><main>{children}</main><Footer /><FloatingWhatsapp /></body></html>;
 }
