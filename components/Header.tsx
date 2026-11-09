@@ -9,7 +9,7 @@ const links = [
   ["Comprar", "/#formulario-compra"],
   ["Inversores", "/#solicitud-inversores"],
   ["Nosotros", "/#nosotros"],
-  ["Contacto", "/#contacto"],
+  ["Contacto", "/contacto"],
 ];
 
 export function Header() {
